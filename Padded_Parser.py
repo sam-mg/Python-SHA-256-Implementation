@@ -15,6 +15,6 @@ class InputParser:
                 s1 = RightRotator(w[i - 2], 17).right_rotate() ^ RightRotator(w[i - 2], 19).right_rotate() ^ (w[i - 2] >> 10)
                 w[i] = (w[i - 16] + s0 + w[i - 7] + s1) & 0xFFFFFFFF
 
-                result.append(w)
+            result.append(w)
 
         return result
