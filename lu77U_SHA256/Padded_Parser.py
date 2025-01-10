@@ -1,5 +1,5 @@
 import struct
-from Right_Rotator import RightRotator
+from lu77U_SHA256.Right_Rotator import RightRotator
 
 class InputParser:
     def __init__(self, input_data):

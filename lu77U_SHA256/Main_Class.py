@@ -1,4 +1,4 @@
-from Right_Rotator import RightRotator
+from lu77U_SHA256.Right_Rotator import RightRotator
 
 class MainClass:
     K = [
