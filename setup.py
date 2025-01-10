@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="lu77U-SHA256",
-    version="1.1.0",
+    version="1.1.1",
     author="Sam MG Harish",
     author_email="sammgharish@gmail.com",
     description="An Fully Manual SHA-256 Hasher",
