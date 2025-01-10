@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  python-build-&-publish:
+  python-build-n-publish:
     name: Build and publish Python package
     runs-on: ubuntu-latest
 
