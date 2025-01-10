@@ -30,7 +30,7 @@ jobs:
 
       - name: Run the script for testing
         run: |
-          python Main.py --text "Sample input for testing"
+          python -m lu77U_SHA256.Main --text "Sample input for testing"
 
       - name: Build source distribution and wheel
         run: |
