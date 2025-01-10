@@ -13,5 +13,9 @@ setup(
         "Operating System :: OS Independent",
     ],
     install_requires=["click"],
-    entry_points={"console_scripts": ["lu77U-SHA256 = Main:main"]},
+    entry_points={
+        "console_scripts": [
+            "lu77U-SHA256 = lu77U_SHA256.Main:main"
+        ]
+    }
 )
