@@ -12,6 +12,6 @@ setup(
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
-    install_requires=["click", "struct"],
+    install_requires=["click"],
     entry_points={"console_scripts": ["lu77U-SHA256 = Main:main"]},
 )
