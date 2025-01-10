@@ -1,7 +1,7 @@
 import click
-from Input_Padder import InputPadder
-from Padded_Parser import InputParser
-from Main_Class import MainClass
+from lu77U_SHA256.Input_Padder import InputPadder
+from lu77U_SHA256.Padded_Parser import InputParser
+from lu77U_SHA256.Main_Class import MainClass
 
 @click.command()
 @click.option(
