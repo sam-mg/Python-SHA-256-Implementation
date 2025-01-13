@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="lu77U-SHA256",
-    version="1.1.2",
+    version="1.1.3",
     author="Sam MG Harish",
     home_page="https://github.com/sam-mg/Python-SHA-256-Implementation",
     license="Apache Software License 2.0",
