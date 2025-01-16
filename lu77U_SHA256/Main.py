@@ -6,7 +6,7 @@ from lu77U_SHA256.Custom_Print import CustomPrint
 
 @click.command()
 @click.option(
-    '--text',
+    '-t', '--text',
     help='Input text directly for processing.'
     )
 @click.option(
@@ -15,7 +15,7 @@ from lu77U_SHA256.Custom_Print import CustomPrint
     help='Path to a file to read input from.'
     )
 @click.option(
-    '--file', 
+    '-f', '--file', 
     is_flag=True, 
     help='This option is under construction.'
     )
@@ -24,8 +24,13 @@ from lu77U_SHA256.Custom_Print import CustomPrint
     is_flag=True, 
     help='Enable custom animation-style print for the output.'
     )
+@click.option(
+    '-d', '--debug', 
+    is_flag=True, 
+    help='Enable Debugging - Printing the intermediate steps'
+    )
 
-def main(text, text_from_file, file, animation):
+def main(text, text_from_file, file, animation, debug):
     if file:
         click.echo("The '--file' option is under construction.")
         return
@@ -40,28 +45,29 @@ def main(text, text_from_file, file, animation):
         return
     
     padded_input_string = InputPadder(input_string).pad_input()
-
-    if animation:
-        custom_printer = CustomPrint(f"\n\033[33mPadded Input String: \033[0m\033[36m{padded_input_string}\033[0m")
-        custom_printer.custom_print()
-    else:
-        click.echo(f"\nPadded Input String: {padded_input_string}")
-
+    if debug:
+        if animation:
+            custom_printer = CustomPrint(f"\n\033[33mPadded Input String: \033[0m\033[36m{padded_input_string}\033[0m")
+            custom_printer.custom_print()
+        else:
+            click.echo(f"\n\033[33mPadded Input String: \033[0m\033[36m{padded_input_string}\033[0m")
+    
     expanded_message_schedule = InputParser(padded_input_string).process_chunks()
-
-    if animation:
-        custom_printer.text = f"\n\033[33mExpanded Message Schedule: \033[0m\033[36m{expanded_message_schedule}\033[0m"
-        custom_printer.custom_print()
-    else:
-        click.echo(f"\nExpanded Message Schedule: {expanded_message_schedule}")
-
+    
+    if debug:
+        if animation:
+            custom_printer.text = f"\n\033[33mExpanded Message Schedule: \033[0m\033[36m{expanded_message_schedule}\033[0m"
+            custom_printer.custom_print()
+        else:
+            click.echo(f"\n\033[33mExpanded Message Schedule: \033[0m\033[36m{expanded_message_schedule}\033[0m")
+    
     hash_result = MainClass(expanded_message_schedule).hash_message()
-
+    
     if animation:
         custom_printer.text = f"\n\033[33mThe Hash Result: \033[0m\033[36m{hash_result}\033[0m"
         custom_printer.custom_print()
     else:
-        click.echo(f"\nThe Hash Result: {hash_result}")
+        click.echo(f"\n\033[33mThe Hash Result: \033[0m\033[36m{hash_result}\033[0m")
 
 if __name__ == '__main__':
     main()
