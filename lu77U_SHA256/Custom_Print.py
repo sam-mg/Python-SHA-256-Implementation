@@ -9,5 +9,5 @@ class CustomPrint:
         for char in self.text:
             sys.stdout.write(char)
             sys.stdout.flush()
-            time.sleep(0.075)
+            time.sleep(0.05)
         print()

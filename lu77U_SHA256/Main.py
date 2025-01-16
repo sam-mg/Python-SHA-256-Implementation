@@ -44,10 +44,13 @@ def main(text, text_from_file, file, animation, debug):
         click.echo("Please provide input using either --text or --text_from_file")
         return
     
+    if animation:
+        custom_printer = CustomPrint("")
+    
     padded_input_string = InputPadder(input_string).pad_input()
     if debug:
         if animation:
-            custom_printer = CustomPrint(f"\n\033[33mPadded Input String: \033[0m\033[36m{padded_input_string}\033[0m")
+            custom_printer.text = f"\n\033[33mPadded Input String: \033[0m\033[36m{padded_input_string}\033[0m"
             custom_printer.custom_print()
         else:
             click.echo(f"\n\033[33mPadded Input String: \033[0m\033[36m{padded_input_string}\033[0m")
@@ -56,18 +59,18 @@ def main(text, text_from_file, file, animation, debug):
     
     if debug:
         if animation:
-            custom_printer.text = f"\n\033[33mExpanded Message Schedule: \033[0m\033[36m{expanded_message_schedule}\033[0m"
+            custom_printer.text = f"\n\033[33mExpanded Message Schedule: \033[0m\033[36m{expanded_message_schedule}\033[0m\n"
             custom_printer.custom_print()
         else:
-            click.echo(f"\n\033[33mExpanded Message Schedule: \033[0m\033[36m{expanded_message_schedule}\033[0m")
+            click.echo(f"\n\033[33mExpanded Message Schedule: \033[0m\033[36m{expanded_message_schedule}\033[0m\n")
     
     hash_result = MainClass(expanded_message_schedule).hash_message()
     
     if animation:
-        custom_printer.text = f"\n\033[33mThe Hash Result: \033[0m\033[36m{hash_result}\033[0m"
+        custom_printer.text = f"\033[33mThe SHA-256 Hash of {input_string}: \033[0m\033[36m{hash_result}\033[0m"
         custom_printer.custom_print()
     else:
-        click.echo(f"\n\033[33mThe Hash Result: \033[0m\033[36m{hash_result}\033[0m")
+        click.echo(f"\033[33mThe SHA-256 Hash of {input_string}: \033[0m\033[36m{hash_result}\033[0m")
 
 if __name__ == '__main__':
     main()
