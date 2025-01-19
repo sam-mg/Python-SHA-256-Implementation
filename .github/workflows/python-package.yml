@@ -12,10 +12,10 @@ jobs:
       - uses: actions/checkout@v2
         name: Checkout code
 
-      - name: Set up Python 3.9
+      - name: Set up Python 3.13.1
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: 3.13.1
 
       - name: Install local modules
         run: |
@@ -30,7 +30,9 @@ jobs:
 
       - name: Run the script for testing
         run: |
+          python -m lu77U_SHA256.Main --help
           python -m lu77U_SHA256.Main -t "Hell0 W0rld!!! Th!s !s myself lu77_u" -d -a
+          python -m lu77U_SHA256.Main --text_from_file ./Sample_Text -d -a
 
       - name: Build source distribution and wheel
         run: |

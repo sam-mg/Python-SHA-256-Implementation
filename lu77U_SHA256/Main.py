@@ -15,11 +15,6 @@ from lu77U_SHA256.Custom_Print import CustomPrint
     help='Path to a file to read input from.'
     )
 @click.option(
-    '-f', '--file', 
-    is_flag=True, 
-    help='This option is under construction.'
-    )
-@click.option(
     '-a', '--animation', 
     is_flag=True, 
     help='Enable custom animation-style print for the output.'
@@ -30,11 +25,7 @@ from lu77U_SHA256.Custom_Print import CustomPrint
     help='Enable Debugging - Printing the intermediate steps'
     )
 
-def main(text, text_from_file, file, animation, debug):
-    if file:
-        click.echo("The '--file' option is under construction.")
-        return
-    
+def main(text, text_from_file, animation, debug):
     if text:
         input_string = text
     elif text_from_file:
